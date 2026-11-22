@@ -1,0 +1,39 @@
+name: mankafe
+description: "拷贝漫画第三方客户端"
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  # 需要 Flutter 3.27+（WidgetState* / Color.withValues / surfaceContainer*）
+  sdk: ">=3.6.0 <4.0.0"
+
+# 运行时依赖
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any # 国际化
+  crypto: ^3.0.5 # 加密相关工具
+  http: ^1.2.2 # HTTP 网络请求
+  provider: ^6.1.2 # 状态管理
+  shared_preferences: ^2.3.0 # 本地轻量级键值存储
+  path_provider: ^2.1.4 # 获取应用缓存、文档等系统目录
+  image_picker: ^1.2.4 # 图片选择器
+  video_player: ^2.14.1 # 视频播放组件
+
+# 开发及测试依赖
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true # 启用 Material Design 内置图标字体
+
+  # 新增语言时，在这里加一行 - assets/i18n/<语言>/
+  assets:
+    - assets/i18n/zh/
+    - assets/i18n/en/
