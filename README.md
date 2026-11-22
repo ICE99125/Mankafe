@@ -18,8 +18,16 @@ flutter run
 
 ## 打包
 
+不拆分架构
+
 ```bash
 flutter build apk --release
+```
+
+拆分架构
+
+```bash
+flutter build apk --release --split-per-abi
 ```
 
 ## 代码结构
