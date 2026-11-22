@@ -1,0 +1,21 @@
+{
+  "appName": "Mankafe",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "reply": "Reply",
+  "send": "Send",
+  "me": "Me",
+  "navHome": "Featured",
+  "navBrowse": "Browse",
+  "navNovel": "Novels",
+  "navPhoto": "Photos",
+  "navAnimation": "Animation",
+  "navLibrary": "Library",
+  "navProfile": "Profile",
+  "prevPage": "Previous",
+  "nextPage": "Next",
+  "pageRange": "{start}-{end} of {total}",
+  "pageOf": "Page {page} of {pages}",
+  "chapterPageRange": "{start}-{end} of {total}",
+  "chapterPageOf": "Page {page} of {pages}"
+}

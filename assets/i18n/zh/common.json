@@ -1,0 +1,21 @@
+{
+  "appName": "漫咖",
+  "cancel": "取消",
+  "confirm": "确认",
+  "reply": "回复",
+  "send": "发送",
+  "me": "我",
+  "navHome": "精选",
+  "navBrowse": "浏览",
+  "navNovel": "小说",
+  "navPhoto": "写真",
+  "navAnimation": "动画",
+  "navLibrary": "书架",
+  "navProfile": "个人",
+  "prevPage": "上一页",
+  "nextPage": "下一页",
+  "pageRange": "{start}-{end} / {total}",
+  "pageOf": "第 {page} / {pages} 页",
+  "chapterPageRange": "{start}-{end} / {total}",
+  "chapterPageOf": "第 {page} / {pages} 页"
+}
