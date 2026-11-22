@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 启动窗口背景：只有一层跟首页一致的表层色，不放 logo / 图标。
+     （Android 12+ 的启动画面由系统绘制，见 values-v31/styles.xml） -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/launch_bg" />
+</layer-list>

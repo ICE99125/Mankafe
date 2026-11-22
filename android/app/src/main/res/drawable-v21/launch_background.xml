@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 启动窗口背景（API 21+ 版本）：同 drawable/launch_background.xml，纯表层色，
+     不放 logo / 图标 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/launch_bg" />
+</layer-list>

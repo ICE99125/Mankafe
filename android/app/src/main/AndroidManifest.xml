@@ -1,0 +1,68 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 业务接口与启动链路自检都是 HTTP(S) 请求，需要联网权限。 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 「保存到相册」在 Android 10+ 走 MediaStore，不需要存储权限；
+         只有 Android 9 及以下写公共 Pictures 目录时要这条，故限定在 28。 -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <!-- 内置线路全部是 https；这里仅为「自定义线路 / 本地调试代理」
+         可能使用的 http:// 地址放开明文。App 不含任何本地 mock 服务。 -->
+    <application
+        android:label="@string/app_name"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:localeConfig="@xml/locales_config"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!-- 渲染后端固定用 Skia（OpenGL ES），显式关掉 Impeller / Vulkan。
+             现象：动画页等图片密集的页面「加载一会」后整屏变成一片
+             #F9F9FF —— 该色号同时等于 M3 的 surface 和 NormalTheme 的
+             ?android:colorBackground，说明 Flutter 表面已经不出帧，露出的是
+             Activity 窗口背景，不是某段 Dart 布局画成了空白。
+             Impeller 走 Vulkan，在模拟器（MuMu 虚拟屏，虚拟屏连 screencap /
+             screenrecord 都拿不到帧）和部分老 GPU 上会丢设备后静默停帧；
+             换成 Skia 后帧稳定，`_flutter.screenshot` 也能正常取图。 -->
+        <meta-data
+            android:name="io.flutter.embedding.android.EnableImpeller"
+            android:value="false" />
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+    <!-- Required to query activities that can process text, see:
+         https://developer.android.com/training/package-visibility and
+         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+
+         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+    </queries>
+</manifest>

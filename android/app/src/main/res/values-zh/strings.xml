@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 中文（含 zh-Hans / zh-Hant / zh-HK 等所有 zh-* 区域）显示的中文名。 -->
+    <string name="app_name">漫咖</string>
+</resources>

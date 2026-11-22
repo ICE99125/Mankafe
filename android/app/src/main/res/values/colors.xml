@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 启动窗口底色：对齐 app 浅色主题的表层色（ColorScheme.fromSeed light 的 surface = #F9F9FF） -->
+    <color name="launch_bg">#F9F9FF</color>
+</resources>

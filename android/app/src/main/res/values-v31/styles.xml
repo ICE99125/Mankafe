@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- API 31+（Android 12 起）系统强制画启动画面。Flutter 的 launch_background.xml
+     管不到它：这时候屏幕上出现的是「白底 + app 图标」的独立启动页，也就是用户
+     说的「那个图标界面」。把图标换成全透明 drawable、底色换成和首页一致的表层
+     色，启动过程就只剩一帧纯色背景，视觉上等于直接进 app。 -->
+<resources>
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">@color/launch_bg</item>
+        <item name="android:windowSplashScreenBackground">@color/launch_bg</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon_none</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/launch_bg</item>
+        <item name="android:windowSplashScreenAnimationDuration">0</item>
+    </style>
+</resources>
